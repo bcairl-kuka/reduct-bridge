@@ -33,11 +33,10 @@ jobs:
 
       - name: Verify Rust toolchain
         run: |
-          rustup toolchain install 1.96 --profile minimal
-          rustup default 1.96
+          rustup toolchain install 1.96.0 --profile minimal
           rustc --version
           cargo --version
-          rustc --version | grep -Eq '^rustc 1\\.(9[6-9]|[1-9][0-9]{2,})\\.'
+          rustc --version | grep -Eq '^rustc 1\.96\.'
 
       - name: Build Rust package
         shell: bash
