@@ -31,6 +31,13 @@ jobs:
             ros-jazzy-example-interfaces \
             ros-jazzy-test-msgs
 
+      - name: Initialize rosdep
+        run: |
+          if [ ! -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then
+            sudo rosdep init
+          fi
+          rosdep update
+
       - name: Verify Rust toolchain
         run: |
           rustup toolchain install 1.96.0 --profile minimal
